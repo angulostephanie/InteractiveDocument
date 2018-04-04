@@ -1,0 +1,27 @@
+body {
+  font-family: "Andale Mono";
+  /* https://www.tutorialspoint.com/html/html_fonts_ref.htm */
+}
+section {
+  padding-bottom: 25px;
+}
+
+.content, .parameters, .environment{
+  margin: auto;
+  width: 700px;
+}
+.parameters {
+  /* display: flex; */
+
+}
+.environmentiFrame {
+  margin: auto;
+}
+
+.title {
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+#btnSubmit {
+  
+}

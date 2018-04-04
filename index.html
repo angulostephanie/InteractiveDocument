@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+
+ <head>
+    <title>How does your BAC change? - Interactive Document</title>
+    <link rel = "stylesheet" type = "text/css" href = "css/style.css">
+    <meta name=viewport content='width=400'>
+    <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+    <script type="text/javascript" src="lib/main.js"></script>
+  </head>
+
+  <body>
+    <section class = "introSection">
+      <div class = "content">
+        <div class = "text">
+          Hello there! Hello there! Hello there! Hello there!
+          Hello there! Hello there! Hello there! Hello there!
+          Hello there! Hello there! Hello there! Hello there!
+          Hello there! Hello there! Hello there! Hello there!
+          Hello there! Hello there! Hello there! Hello there!
+          Hello there! Hello there! Hello there! Hello there!
+          Hello there! Hello there! Hello there! Hello there!
+          Hello there! Hello there! Hello there! Hello there!
+          Hello there! Hello there! Hello there! Hello there!
+        </div>
+        <p id = "lol"> HI</p>
+      </div>
+    </section>
+
+    <section class = "parameterSection">
+      <div class = "parameters">
+        <form>
+          Weight in lbs:<br>
+          <input id = "weight" type="text" name="weight">
+        </form>
+          Time of arrival:
+          <select id = "arrival" name = "timeofarrival">
+            <option value="800">8:00 PM</option>
+            <option value="900">9:00 PM</option>
+            <option value="1000">10:00 PM</option>
+            <option value="1100">11:00 PM</option>
+          </select>
+          Time of departure:
+          <select id = "departure" name = "timeofdeparture">
+            <option value="1200">12:00 AM</option>
+            <option value="1300">1:00 AM</option>
+            <option value="1400">2:00 AM</option>
+            <option value="1500">3:00 AM</option>
+          </select>
+        <br>
+        <input id = "btnSubmit" type="button" value="Click Me!">
+
+      </div>
+    </section>
+
+    <section class = "environmentSection">
+      <div class = "environment">
+        <iframe class = "environmentiFrame">
+        </iframe>
+        <br>
+        <label id="hours">00</label>:<label id="minutes">00</label>
+      </div>
+    </section>
+  </body>
+  </html>
