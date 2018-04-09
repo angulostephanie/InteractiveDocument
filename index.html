@@ -1,65 +1,154 @@
 <!DOCTYPE html>
 <html>
 
- <head>
-    <title>How does your BAC change? - Interactive Document</title>
-    <link rel = "stylesheet" type = "text/css" href = "css/style.css">
-    <meta name=viewport content='width=400'>
-    <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
-    <script type="text/javascript" src="lib/main.js"></script>
-  </head>
+<head>
+  <title>How does your BAC change? - Interactive Document</title>
+  <meta name=viewport content='width=400'>
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400" rel="stylesheet">
+  <link rel = "stylesheet" type = "text/css" href = "css/style.css">
+  <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+  <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+        processEscapes: true
+      }
+    });
+  </script>
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-MML-AM_CHTML' async></script>
+  <script type="text/javascript" src="lib/main.js"></script>
+  <script type="text/javascript" src="lib/env.js"></script>
+  <!-- <script type="text/javascript" src="lib/chart.js"></script> -->
+</head>
 
-  <body>
-    <section class = "introSection">
-      <div class = "content">
-        <div class = "text">
-          Hello there! Hello there! Hello there! Hello there!
-          Hello there! Hello there! Hello there! Hello there!
-          Hello there! Hello there! Hello there! Hello there!
-          Hello there! Hello there! Hello there! Hello there!
-          Hello there! Hello there! Hello there! Hello there!
-          Hello there! Hello there! Hello there! Hello there!
-          Hello there! Hello there! Hello there! Hello there!
-          Hello there! Hello there! Hello there! Hello there!
-          Hello there! Hello there! Hello there! Hello there!
+<body>
+  <section class = "titleSection">
+    <div class = "title">
+      <h1>Your Blood Alcohol Content</h1>
+      How does it vary?
+      <!-- <p>by gender</p>
+      <p> by number of drinks </p>
+      <p> by time</p> -->
+    </div>
+    <div class = "links">
+      <a href> By Gender </a>
+      <a href> By Weight </a>
+      <a href> By Amount of Alcohol Intake </a>
+      <a href> By Time </a>
+    </div>
+  </section>
+
+  <section class = "introSection">
+    <div class = "content">
+      <h1>What is BAC?</h1>
+      <div class = "text">
+        Information about BAC.
+        <a id = "wikiLink" href="https://en.wikipedia.org/wiki/Blood_alcohol_content#Estimated_blood_alcohol_content_by_intake" target="_blank"><h4>Equation for estimated blood alcohol content</h4></a>
+        <p id = "equation">
+          $EBAC = \left(\frac{0.086\times D\times 1.2
+          }{B\times W} - M \times T \right)$
+        </p>
+        <p> 0.806 = constant for body water in blood </p>
+        <p> D = number of drinks</p>
+        <p> 1.2 = </p>
+        <p> B = body water constant</p>
+        <p> W = weight in kilograms</p>
+        <p> M = metabolism constant, 0.015 for males, 0.017 for females </p>
+        <p> T = time in hours</p>
+      </div>
+    </div>
+  </section>
+<hr>
+<section class = "effectsSection">
+  <div class = "content">
+    <h1>The Effects of Alcohol in Relation to Your BAC</h1>
+    <div class = "text">
+      <p>.00 - .05% ~</p>
+      <p>.06 - .15% </p>
+      <p>.16 - .30% </p>
+
+    </div>
+  </div>
+</section>
+<hr>
+  <section class = "parameterSection">
+    <div class = "parameters">
+      <div class = "weight">
+        Weight:
+        <input id = "weight" type="text" name="weight">
+        <div class = "units">
+          <input id = "units" type="radio" name="units" value="lbs" checked> lbs
+          <input id = "units" type="radio" name="units" value="kgs"> kgs
         </div>
-        <p id = "lol"> HI</p>
       </div>
-    </section>
+      <br>
+      <div class = "gender">
+        Gender:
+        <input id = "gender" type="radio" name="gender" value="male" checked> Male
+        <input id = "gender" type="radio" name="gender" value="female"> Female
+      </div>
+      <div class = "arrival">
+        Time of arrival:
+        <select id = "arrival" name = "timeofarrival">
+          <!-- <option value="0">0:00 PM</option> -->
+          <!-- testing purposes -->
+          <option value="800">8:00 PM</option>
+          <option value="900">9:00 PM</option>
+          <option value="1000">10:00 PM</option>
+          <option value="1100">11:00 PM</option>
+        </select>
+      </div>
+      <div class = "departure">
+        Time of departure:
+        <select id = "departure" name = "timeofdeparture">
+          <option value="1200">12:00 AM</option>
+          <option value="1300">1:00 AM</option>
+          <option value="1400">2:00 AM</option>
+          <option value="1500">3:00 AM</option>
+        </select>
+      </div>
+      <input id = "btnSubmit" type="button" value="Start!">
+    </div>
+  </section>
 
-    <section class = "parameterSection">
-      <div class = "parameters">
-        <form>
-          Weight in lbs:<br>
-          <input id = "weight" type="text" name="weight">
-        </form>
-          Time of arrival:
-          <select id = "arrival" name = "timeofarrival">
-            <option value="800">8:00 PM</option>
-            <option value="900">9:00 PM</option>
-            <option value="1000">10:00 PM</option>
-            <option value="1100">11:00 PM</option>
-          </select>
-          Time of departure:
-          <select id = "departure" name = "timeofdeparture">
-            <option value="1200">12:00 AM</option>
-            <option value="1300">1:00 AM</option>
-            <option value="1400">2:00 AM</option>
-            <option value="1500">3:00 AM</option>
-          </select>
+  <hr>
+  <section class = "first-env">
+    <div class = "env">
+        <div class = "timer">
+          <label id="hours">00</label>:<label id="minutes">00</label><label id="am_pm">PM</label>
+          <p id = "bac"> </p>
+        </div>
         <br>
-        <input id = "btnSubmit" type="button" value="Click Me!">
+        <div class = "chart-container">
+          <canvas id="myChart"></canvas>
+         </div>
+    </div>
+  </section>
+  <hr>
+  <section class = "last-env">
+    <div class = "env">
+      <iframe class = "enviFrame" src = "env.htm">
+      </iframe>
+    </div>
+  </section>
+  <section class = "footerSection">
+    <div class = "footer">
+      by Stephanie Angulo
+    </div>
+  </section>
 
-      </div>
-    </section>
+  <!-- <section class = "envSection2">
+  <div class = "env">
+  <div class = "timer">
+  <label id="hours">00</label>:<label id="minutes">00</label><label id="am_pm">PM</label>
+</div>
+<iframe class = "enviFrame" src = "env.htm">
+</iframe>
+</div>
+</section> -->
 
-    <section class = "environmentSection">
-      <div class = "environment">
-        <iframe class = "environmentiFrame">
-        </iframe>
-        <br>
-        <label id="hours">00</label>:<label id="minutes">00</label>
-      </div>
-    </section>
-  </body>
-  </html>
+
+</body>
+</html>
