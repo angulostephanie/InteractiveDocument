@@ -2,20 +2,19 @@
 <html>
 
 <head>
-  <title>How does your BAC change? - Interactive Document</title>
+  <title>BAC</title>
   <meta name=viewport content='width=400'>
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400" rel="stylesheet">
   <link rel = "stylesheet" type = "text/css" href = "css/style.css">
   <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
-  <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
   <script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-      tex2jax: {
-        inlineMath: [ ['$','$'], ["\\(","\\)"] ],
-        processEscapes: true
-      }
-    });
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true
+    }
+  });
   </script>
   <script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-MML-AM_CHTML' async></script>
   <script type="text/javascript" src="lib/main.js"></script>
@@ -28,52 +27,246 @@
     <div class = "title">
       <h1>Your Blood Alcohol Content</h1>
       How does it vary?
-      <!-- <p>by gender</p>
-      <p> by number of drinks </p>
-      <p> by time</p> -->
     </div>
     <div class = "links">
-      <a href> By Gender </a>
-      <a href> By Weight </a>
-      <a href> By Amount of Alcohol Intake </a>
-      <a href> By Time </a>
+      <a href = "#genderSection"> By Gender </a>
+      <a href = "#weightSection"> By Weight </a>
+      <a href = "#drinksSection"> By Amount of Alcohol Intake </a>
+      <a href = "#timeSection"> By Time </a>
     </div>
   </section>
-
   <section class = "introSection">
     <div class = "content">
       <h1>What is BAC?</h1>
       <div class = "text">
-        Information about BAC.
-        <a id = "wikiLink" href="https://en.wikipedia.org/wiki/Blood_alcohol_content#Estimated_blood_alcohol_content_by_intake" target="_blank"><h4>Equation for estimated blood alcohol content</h4></a>
+        <p>
+          Alcohol can affect people differently based on variations in physiology
+          and alcohol tolerance. One of the more direct ways to see how intoxicated
+          a person is is by checking their BAC, or blood alcohol content. BAC is how
+          much alcohol is in a person's blood stream. Below is an equation to compute
+          an estimation of a person's BAC in percentage by volume.
+        </p>
+        <a id = "wikiLink"
+        href="https://en.wikipedia.org/wiki/Blood_alcohol_content#Estimated_blood_alcohol_content_by_intake"
+        target="_blank"><h4>Equation for estimated blood alcohol content (EBAC)</h4></a>
         <p id = "equation">
           $EBAC = \left(\frac{0.086\times D\times 1.2
           }{B\times W} - M \times T \right)$
         </p>
-        <p> 0.806 = constant for body water in blood </p>
-        <p> D = number of drinks</p>
-        <p> 1.2 = </p>
-        <p> B = body water constant</p>
-        <p> W = weight in kilograms</p>
-        <p> M = metabolism constant, 0.015 for males, 0.017 for females </p>
-        <p> T = time in hours</p>
+        <p> <b>0.806</b> and <b>1.2</b> are constants. </p>
+        <p> <b>D</b> is number of drinks. </p>
+        <p> <b>B</b> is body water constant -  0.58 for males, 0.49 for females. </p>
+        <p> <b>W</b> is weight in kilograms. </p>
+        <p> <b>M</b> is metabolism constant - 0.015 for males, 0.017 for females. </p>
+        <p> <b>T</b> is time in hours.</p>
       </div>
     </div>
   </section>
-<hr>
-<section class = "effectsSection">
-  <div class = "content">
-    <h1>The Effects of Alcohol in Relation to Your BAC</h1>
-    <div class = "text">
-      <p>.00 - .05% ~</p>
-      <p>.06 - .15% </p>
-      <p>.16 - .30% </p>
-
+  <hr>
+  <section class = "effectsSection">
+    <div class = "content">
+      <h1>The Effects of Alcohol in Relation to Your BAC</h1>
+      <div class = "text">
+        <p><b>When your BAC is: </b></p>
+        <p><b>0.02 - 0.059%</b> ~ Relaxation, mild euphoria, minor impairment.</p>
+        <p><b>0.06 - 0.099%</b> ~ Euphoria, slight impairment of balance, speech, reaction time. It is <b>illegal</b> to drive with a BAC of 0.08% in the state of California.</p>
+        <p><b>0.10 - 0.199%</b> ~ Significant impairment of motor coordination, slurred speech. Nausea may appear.</p>
+        <p><b>0.20 - 0.299%</b> ~ Severe motor impairment, emotional swings, vomiting, memory blackouts.</p>
+        <p><b>0.30 - 0.399%</b> ~ Central nervous system depression, unresponsiveness, loss of understanding, trouble with breathing. </p>
+        <p><b>0.40 - 0.50%</b> ~ Severe central nervous system depression, coma, low heart rates, possibility of death.</p>
+        <p><b>Higher than 0.50%</b> ~ high possiblity of death.</p>
+        <p>Despite what myths (regarding coffee, cold showers, etc) may say,
+          time is the only factor thing that will lower your BAC. Since drinking
+          alcohol causes dehydration, it would be very wise to drink a plentiful
+          amount of water, however drinking water does not sober you up faster. </p>
+          <p> Play around with the parameters of the section's below to see how they change one's BAC.</p>
+          <b> Please only enter weights higher than 50 lbs. </b>
+        </div>
+      </div>
+    </section>
+  <hr>
+  <section id = "genderSection"class = "genderSection">
+      <div class = "content">
+        <h1>Comparing BAC by Gender</h1>
+        <div class = "text">
+          <p>Let's say a male and a female both weigh
+            <input id = "gender-weight" type="number" name="weight" style="width: 40px">
+            lbs, drink
+            <select id = "gender-drinks" name = "drinks">
+              <option value="1">1 drink</option>
+              <option value="2">2 drinks</option>
+              <option value="3">3 drinks</option>
+              <option value="4">4 drinks</option>
+              <option value="5">5 drinks</option>
+              <option value="6">6 drinks</option>
+              <option value="7">7 drinks</option>
+              <option value="8">8 drinks</option>
+              <option value="9">9 drinks</option>
+            </select>
+            within a
+            <select id = "gender-time" name = "time">
+              <option value="1">1 hour</option>
+              <option value="2">2 hour</option>
+              <option value="3">3 hour</option>
+              <option value="4">4 hour</option>
+              <option value="5">5 hour</option>
+              <option value="6">6 hour</option>
+            </select>
+            time period.</p>
+            <p id = "male-result"> </p>
+            <p id = "female-result"> </p>
+          </div>
+        </div>
+      </div>
+    </section>
+  <hr>
+  <section id = "weightSection" class = "weightSection">
+    <div class = "content">
+      <h1>Comparing BAC by Weight</h1>
+      <div class = "text">
+        <p>
+        Let's say there are two
+        <select id = "weight-gender" name = "genders">
+          <option value="male">males</option>
+          <option value="female">females</option>
+        </select>
+        who both drink
+        <select id = "weight-drinks" name = "drinks">
+          <option value="1">1 drink</option>
+          <option value="2">2 drinks</option>
+          <option value="3">3 drinks</option>
+          <option value="4">4 drinks</option>
+          <option value="5">5 drinks</option>
+          <option value="6">6 drinks</option>
+          <option value="7">7 drinks</option>
+          <option value="8">8 drinks</option>
+          <option value="9">9 drinks</option>
+        </select>
+        within a
+        <select id = "weight-time" name = "time">
+          <option value="1">1 hour</option>
+          <option value="2">2 hour</option>
+          <option value="3">3 hour</option>
+          <option value="4">4 hour</option>
+          <option value="5">5 hour</option>
+          <option value="6">6 hour</option>
+        </select>
+        time period. The first
+        <b id = "gender-1"></b> weighs
+        <input id = "weight-1" type="number" name="weight" style="width: 40px">
+        lbs, and the second <b id = "gender-2"></b> weighs
+        <input id = "weight-2" type="number" name="weight" style="width: 40px">
+        lbs.
+      </p>
+      <p id = "weight1-result"> </p>
+      <p id = "weight2-result"> </p>
+      </div>
     </div>
-  </div>
-</section>
-<hr>
-  <section class = "parameterSection">
+  </section>
+  <hr>
+  <section id = "drinksSection" class = "drinksSection">
+    <div class = "content">
+      <h1>Comparing by Amount of Alcohol Intake</h1>
+      <div class = "text">
+        <p> Let's say there are two
+        <select id = "drinks-gender" name = "genders">
+          <option value="male">males</option>
+          <option value="female">females</option>
+        </select>
+        who both weigh
+        <input id = "drinks-weight" type="number" name="weight" style="width: 40px" >
+        lbs and are both drinking within a
+        <select id = "drinks-time" name = "time">
+          <option value="1">1 hour</option>
+          <option value="2">2 hour</option>
+          <option value="3">3 hour</option>
+          <option value="4">4 hour</option>
+          <option value="5">5 hour</option>
+          <option value="6">6 hour</option>
+        </select>
+        period. The first
+        <b id = "dgender-1"></b> drinks
+        <select id = "drinks-1" name = "drinks">
+          <option value="1">1 drink</option>
+          <option value="2">2 drinks</option>
+          <option value="3">3 drinks</option>
+          <option value="4">4 drinks</option>
+          <option value="5">5 drinks</option>
+          <option value="6">6 drinks</option>
+          <option value="7">7 drinks</option>
+          <option value="8">8 drinks</option>
+          <option value="9">9 drinks</option>
+        </select>
+        , and the second <b id = "dgender-2"></b> weighs
+        <select id = "drinks-2" name = "drinks">
+          <option value="1">1 drink</option>
+          <option value="2">2 drinks</option>
+          <option value="3">3 drinks</option>
+          <option value="4">4 drinks</option>
+          <option value="5">5 drinks</option>
+          <option value="6">6 drinks</option>
+          <option value="7">7 drinks</option>
+          <option value="8">8 drinks</option>
+          <option value="9">9 drinks</option>
+        </select>.
+      </p>
+      <p id = "drinks1-result"> </p>
+      <p id = "drinks2-result"> </p>
+      </div>
+    </div>
+  </section>
+  <hr>
+  <section id = "timeSection" class = "timeSection">
+    <div class = "content">
+      <h1>Comparing By Length of Drinking Periods</h1>
+      <div class = "text">
+        <p> Let's say there are two
+        <select id = "time-gender" name = "genders">
+          <option value="male">males</option>
+          <option value="female">females</option>
+        </select>
+        who both weigh
+        <input id = "time-weight" type="number" name="weight" style="width: 40px" >
+        lbs and who both drink
+        <select id = "time-drinks" name = "drinks">
+          <option value="1">1 drink</option>
+          <option value="2">2 drinks</option>
+          <option value="3">3 drinks</option>
+          <option value="4">4 drinks</option>
+          <option value="5">5 drinks</option>
+          <option value="6">6 drinks</option>
+          <option value="7">7 drinks</option>
+          <option value="8">8 drinks</option>
+          <option value="9">9 drinks</option>
+        </select> .
+        The first
+        <b id = "tgender-1"></b> drinks a
+        <select id = "time-1" name = "time">
+          <option value="1">1 hour</option>
+          <option value="2">2 hour</option>
+          <option value="3">3 hour</option>
+          <option value="4">4 hour</option>
+          <option value="5">5 hour</option>
+          <option value="6">6 hour</option>
+        </select>
+        period, and the second <b id = "dgender-2"></b> drinks in a
+        <select id = "time-2" name = "time">
+          <option value="1">1 hour</option>
+          <option value="2">2 hour</option>
+          <option value="3">3 hour</option>
+          <option value="4">4 hour</option>
+          <option value="5">5 hour</option>
+          <option value="6">6 hour</option>
+        </select> period.
+      </p>
+      <p id = "time1-result"> </p>
+      <p id = "time2-result"> </p>
+      </div>
+    </div>
+  </section>
+  <hr>
+
+  <!-- <section class = "parameterSection">
     <div class = "parameters">
       <div class = "weight">
         Weight:
@@ -86,14 +279,12 @@
       <br>
       <div class = "gender">
         Gender:
-        <input id = "gender" type="radio" name="gender" value="male" checked> Male
-        <input id = "gender" type="radio" name="gender" value="female"> Female
+        <input id = "genderRB" type="radio" name="gender" value="male" checked> Male
+        <input id = "genderRB" type="radio" name="gender" value="female"> Female
       </div>
       <div class = "arrival">
         Time of arrival:
         <select id = "arrival" name = "timeofarrival">
-          <!-- <option value="0">0:00 PM</option> -->
-          <!-- testing purposes -->
           <option value="800">8:00 PM</option>
           <option value="900">9:00 PM</option>
           <option value="1000">10:00 PM</option>
@@ -128,27 +319,16 @@
   </section>
   <hr>
   <section class = "last-env">
-    <div class = "env">
+    <div class = "frame-env">
       <iframe class = "enviFrame" src = "env.htm">
       </iframe>
     </div>
   </section>
+
   <section class = "footerSection">
     <div class = "footer">
       by Stephanie Angulo
     </div>
-  </section>
-
-  <!-- <section class = "envSection2">
-  <div class = "env">
-  <div class = "timer">
-  <label id="hours">00</label>:<label id="minutes">00</label><label id="am_pm">PM</label>
-</div>
-<iframe class = "enviFrame" src = "env.htm">
-</iframe>
-</div>
-</section> -->
-
-
+  </section> -->
 </body>
 </html>
