@@ -2,7 +2,7 @@ body {
   height: 100%;
   font-family: 'Open Sans', sans-serif;
   font-weight: 300;
-  background-color: #f9f9f9;
+  background-color: #eee;
   /* https://www.tutorialspoint.com/html/html_fonts_ref.htm */
 }
 
@@ -25,38 +25,29 @@ section {
 }
 
 .first-env {
-  height: 700px;
+  height: 800px;
   width: 100%;
   display: inline-block;
 }
-
-.last-env {
-  height: 400px;
-  width: 100%;
-  display: inline-block;
-
+.env-outer {
+  height: 80%;
 }
 
-.content, .parameters, .env, .chart-container, .footer{
+
+.content, .env-outer, .footer{
   position: relative;
   top: 50%;
   left: 50%;
   transform: translate(-50%,-50%);
-  width: 800px;
+  width: 1000px;
 }
 
-.parameters, .env, .footer {
+.env-outer, .footer {
   text-align: center;
   width: 100%;
   position: relative;
 }
-.frame-env {
-  position: relative;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%,-50%);
-  text-align: center;
-}
+
 .title {
   position: relative;
   top: 50%;
@@ -86,6 +77,7 @@ a:hover {
 }
 .weight, .arrival, .departure {
   margin-bottom: 7px;
+  text-align:  center;
 }
 
 
@@ -95,20 +87,22 @@ a:hover {
   margin-left: 20px;
 
 }
-.chart-container {
-  position: absolute;
-}
-.enviFrame {
-  display: block;
-  text-align: center;
+.chart-container {display:  inline-block;}
+
+.env-inner {
+  display: table-cell;
+  width: 100%;
   position: relative;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%);
+  left: 20%;
+  text-align: center;
+}
+.env-inner-inner {
+  display: inline-block;
 }
 
 canvas {
   background-color: white;
+  border-radius:  5px;
 }
 
 hr {
@@ -127,6 +121,10 @@ hr {
 }
 iframe {
   border: none;
+  height: 300px;
+  width: 700px;
+  border-radius: 8px;
+  margin-left: 20px;
 }
 
 
@@ -150,14 +148,96 @@ iframe {
 .effectsSection {
   height: 600px;
 }
-/*
-.parameterSection {
-  background-color: white;
+input, select {
+  border: none;
+  color: white;
+  padding: 17px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 25px;
+  border-radius: 8px;
+}
+#arrival, #departure {
+  color: black;
+  font-size: 17px;
+}
+
+.env-inputs {
+  display: table;
+  font-size: 20px;
+  text-align: center;
+  transform: translate(98%);
+}
+.parameters {
+  display: inline-block;
 
 }
-.first-env {
-  background-color: white;
+#startBtn {
+  background-color: #4CAF50;
+  margin-bottom: 15px;
 }
-.last-env {
-  background-color: white;
-} */
+
+#weight {
+  margin-left: 30px;
+  margin-right: 30px;
+  margin-bottom: 5px;
+  color:black;
+  /* padding: 10px 0px; */
+  padding-left:  0px;
+  padding-right:  0px;
+  /* padding-top: 10px; */
+  /* padding-bottom: 10px; */
+  font-size: 15px;
+}
+#genderRB {
+  margin-left: 30px;
+  margin-right: 30px;
+  margin-bottom: 25px;
+}
+#arrival {
+  /* right: 0; */
+  /* left: 2000px; */
+  margin-left: 80px;
+  margin-right: 30px;
+  margin-bottom: 15px;
+}
+#departure {
+  margin-left: 35px;
+  margin-right: 30px;
+  margin-bottom: 35px;
+}
+#bac {
+   font-weight: bold;
+   font-size: 20px;
+}
+#user-description {
+  text-align: center;
+  font-weight: bold;
+}
+#user-description2 {
+  text-align: center;
+}
+#symptoms {
+  margin-bottom: 25px;
+}
+#continueBtn {
+  background-color: #4286f4;
+  margin-top: 25px;
+  margin-bottom: 25px;
+  font-size: 20px;
+}
+#instructions {
+  color:#B20000;
+  font-style:bold;
+  margin-bottom: 10px;
+  font-size: 12px;
+
+}
+#instructions2 {
+  color:#B20000;
+  font-style:italic;
+  margin-bottom: 10px;
+  font-size: 12px;
+
+}

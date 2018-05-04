@@ -17,8 +17,9 @@
   });
   </script>
   <script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-MML-AM_CHTML' async></script>
-  <script type="text/javascript" src="lib/main.js"></script>
   <script type="text/javascript" src="lib/env.js"></script>
+  <script type="text/javascript" src="lib/main.js"></script>
+
   <!-- <script type="text/javascript" src="lib/chart.js"></script> -->
 </head>
 
@@ -28,12 +29,12 @@
       <h1>Your Blood Alcohol Content</h1>
       How does it vary?
     </div>
-    <div class = "links">
+    <!-- <div class = "links">
       <a href = "#genderSection"> By Gender </a>
       <a href = "#weightSection"> By Weight </a>
       <a href = "#drinksSection"> By Amount of Alcohol Intake </a>
       <a href = "#timeSection"> By Time </a>
-    </div>
+    </div> -->
   </section>
   <section class = "introSection">
     <div class = "content">
@@ -79,256 +80,78 @@
           time is the only factor thing that will lower your BAC. Since drinking
           alcohol causes dehydration, it would be very wise to drink a plentiful
           amount of water, however drinking water does not sober you up faster. </p>
-          <p> Play around with the parameters of the section's below to see how they change one's BAC.</p>
+          <p> Play around with the parameters of the section below to see how they change one's BAC.</p>
           <b> Please only enter weights higher than 50 lbs. </b>
         </div>
       </div>
     </section>
   <hr>
-  <section id = "genderSection"class = "genderSection">
-      <div class = "content">
-        <h1>Comparing BAC by Gender</h1>
-        <div class = "text">
-          <p>Let's say a male and a female both weigh
-            <input id = "gender-weight" type="number" name="weight" style="width: 40px">
-            lbs, drink
-            <select id = "gender-drinks" name = "drinks">
-              <option value="1">1 drink</option>
-              <option value="2">2 drinks</option>
-              <option value="3">3 drinks</option>
-              <option value="4">4 drinks</option>
-              <option value="5">5 drinks</option>
-              <option value="6">6 drinks</option>
-              <option value="7">7 drinks</option>
-              <option value="8">8 drinks</option>
-              <option value="9">9 drinks</option>
+  <section class = "first-env">
+    <div class = "env-outer">
+      <div class = "env-inputs">
+        <div class = "parameters">
+          <div class = "weight">
+            <b>Weight:</b>
+            <input id = "weight" type="number" name="weight" min = "0">
+            <div class = "units">
+              <input id = "units" type="radio" name="units" value="lbs" checked> lbs
+              <input id = "units" type="radio" name="units" value="kgs"> kgs
+            </div>
+          </div>
+          <br>
+          <div class = "gender">
+            <b>Gender:</b>
+            <input id = "genderRB" type="radio" name="gender" value="male" checked> Male
+            <input id = "genderRB" type="radio" name="gender" value="female"> Female
+          </div>
+          <div class = "arrival">
+            <b>Time of arrival:</b>
+            <select id = "arrival" name = "timeofarrival">
+              <option value="800">8:00 PM</option>
+              <option value="900">9:00 PM</option>
+              <option value="1000">10:00 PM</option>
+              <option value="1100">11:00 PM</option>
             </select>
-            within a
-            <select id = "gender-time" name = "time">
-              <option value="1">1 hour</option>
-              <option value="2">2 hour</option>
-              <option value="3">3 hour</option>
-              <option value="4">4 hour</option>
-              <option value="5">5 hour</option>
-              <option value="6">6 hour</option>
+          </div>
+          <div class = "departure">
+            <b>Time of departure:</b>
+            <select id = "departure" name = "timeofdeparture">
+              <option value="1200">12:00 AM</option>
+              <option value="1300">1:00 AM</option>
+              <option value="1400">2:00 AM</option>
+              <option value="1500">3:00 AM</option>
+              <option value="1600">4:00 AM</option>
             </select>
-            time period.</p>
-            <p id = "male-result"> </p>
-            <p id = "female-result"> </p>
           </div>
         </div>
       </div>
-    </section>
-  <hr>
-  <section id = "weightSection" class = "weightSection">
-    <div class = "content">
-      <h1>Comparing BAC by Weight</h1>
-      <div class = "text">
-        <p>
-        Let's say there are two
-        <select id = "weight-gender" name = "genders">
-          <option value="male">males</option>
-          <option value="female">females</option>
-        </select>
-        who both drink
-        <select id = "weight-drinks" name = "drinks">
-          <option value="1">1 drink</option>
-          <option value="2">2 drinks</option>
-          <option value="3">3 drinks</option>
-          <option value="4">4 drinks</option>
-          <option value="5">5 drinks</option>
-          <option value="6">6 drinks</option>
-          <option value="7">7 drinks</option>
-          <option value="8">8 drinks</option>
-          <option value="9">9 drinks</option>
-        </select>
-        within a
-        <select id = "weight-time" name = "time">
-          <option value="1">1 hour</option>
-          <option value="2">2 hour</option>
-          <option value="3">3 hour</option>
-          <option value="4">4 hour</option>
-          <option value="5">5 hour</option>
-          <option value="6">6 hour</option>
-        </select>
-        time period. The first
-        <b id = "gender-1"></b> weighs
-        <input id = "weight-1" type="number" name="weight" style="width: 40px">
-        lbs, and the second <b id = "gender-2"></b> weighs
-        <input id = "weight-2" type="number" name="weight" style="width: 40px">
-        lbs.
-      </p>
-      <p id = "weight1-result"> </p>
-      <p id = "weight2-result"> </p>
-      </div>
-    </div>
-  </section>
-  <hr>
-  <section id = "drinksSection" class = "drinksSection">
-    <div class = "content">
-      <h1>Comparing by Amount of Alcohol Intake</h1>
-      <div class = "text">
-        <p> Let's say there are two
-        <select id = "drinks-gender" name = "genders">
-          <option value="male">males</option>
-          <option value="female">females</option>
-        </select>
-        who both weigh
-        <input id = "drinks-weight" type="number" name="weight" style="width: 40px" >
-        lbs and are both drinking within a
-        <select id = "drinks-time" name = "time">
-          <option value="1">1 hour</option>
-          <option value="2">2 hour</option>
-          <option value="3">3 hour</option>
-          <option value="4">4 hour</option>
-          <option value="5">5 hour</option>
-          <option value="6">6 hour</option>
-        </select>
-        period. The first
-        <b id = "dgender-1"></b> drinks
-        <select id = "drinks-1" name = "drinks">
-          <option value="1">1 drink</option>
-          <option value="2">2 drinks</option>
-          <option value="3">3 drinks</option>
-          <option value="4">4 drinks</option>
-          <option value="5">5 drinks</option>
-          <option value="6">6 drinks</option>
-          <option value="7">7 drinks</option>
-          <option value="8">8 drinks</option>
-          <option value="9">9 drinks</option>
-        </select>
-        , and the second <b id = "dgender-2"></b> weighs
-        <select id = "drinks-2" name = "drinks">
-          <option value="1">1 drink</option>
-          <option value="2">2 drinks</option>
-          <option value="3">3 drinks</option>
-          <option value="4">4 drinks</option>
-          <option value="5">5 drinks</option>
-          <option value="6">6 drinks</option>
-          <option value="7">7 drinks</option>
-          <option value="8">8 drinks</option>
-          <option value="9">9 drinks</option>
-        </select>.
-      </p>
-      <p id = "drinks1-result"> </p>
-      <p id = "drinks2-result"> </p>
-      </div>
-    </div>
-  </section>
-  <hr>
-  <section id = "timeSection" class = "timeSection">
-    <div class = "content">
-      <h1>Comparing By Length of Drinking Periods</h1>
-      <div class = "text">
-        <p> Let's say there are two
-        <select id = "time-gender" name = "genders">
-          <option value="male">males</option>
-          <option value="female">females</option>
-        </select>
-        who both weigh
-        <input id = "time-weight" type="number" name="weight" style="width: 40px" >
-        lbs and who both drink
-        <select id = "time-drinks" name = "drinks">
-          <option value="1">1 drink</option>
-          <option value="2">2 drinks</option>
-          <option value="3">3 drinks</option>
-          <option value="4">4 drinks</option>
-          <option value="5">5 drinks</option>
-          <option value="6">6 drinks</option>
-          <option value="7">7 drinks</option>
-          <option value="8">8 drinks</option>
-          <option value="9">9 drinks</option>
-        </select> .
-        The first
-        <b id = "tgender-1"></b> drinks a
-        <select id = "time-1" name = "time">
-          <option value="1">1 hour</option>
-          <option value="2">2 hour</option>
-          <option value="3">3 hour</option>
-          <option value="4">4 hour</option>
-          <option value="5">5 hour</option>
-          <option value="6">6 hour</option>
-        </select>
-        period, and the second <b id = "dgender-2"></b> drinks in a
-        <select id = "time-2" name = "time">
-          <option value="1">1 hour</option>
-          <option value="2">2 hour</option>
-          <option value="3">3 hour</option>
-          <option value="4">4 hour</option>
-          <option value="5">5 hour</option>
-          <option value="6">6 hour</option>
-        </select> period.
-      </p>
-      <p id = "time1-result"> </p>
-      <p id = "time2-result"> </p>
-      </div>
-    </div>
-  </section>
-  <hr>
+      <input id = "startBtn" type="button" value="Start Simulation">
 
-  <!-- <section class = "parameterSection">
-    <div class = "parameters">
-      <div class = "weight">
-        Weight:
-        <input id = "weight" type="text" name="weight">
-        <div class = "units">
-          <input id = "units" type="radio" name="units" value="lbs" checked> lbs
-          <input id = "units" type="radio" name="units" value="kgs"> kgs
-        </div>
-      </div>
-      <br>
-      <div class = "gender">
-        Gender:
-        <input id = "genderRB" type="radio" name="gender" value="male" checked> Male
-        <input id = "genderRB" type="radio" name="gender" value="female"> Female
-      </div>
-      <div class = "arrival">
-        Time of arrival:
-        <select id = "arrival" name = "timeofarrival">
-          <option value="800">8:00 PM</option>
-          <option value="900">9:00 PM</option>
-          <option value="1000">10:00 PM</option>
-          <option value="1100">11:00 PM</option>
-        </select>
-      </div>
-      <div class = "departure">
-        Time of departure:
-        <select id = "departure" name = "timeofdeparture">
-          <option value="1200">12:00 AM</option>
-          <option value="1300">1:00 AM</option>
-          <option value="1400">2:00 AM</option>
-          <option value="1500">3:00 AM</option>
-        </select>
-      </div>
-      <input id = "btnSubmit" type="button" value="Start!">
-    </div>
-  </section>
-
-  <hr>
-  <section class = "first-env">
-    <div class = "env">
-        <div class = "timer">
-          <label id="hours">00</label>:<label id="minutes">00</label><label id="am_pm">PM</label>
-          <p id = "bac"> </p>
-        </div>
         <br>
-        <div class = "chart-container">
-          <canvas id="myChart"></canvas>
-         </div>
-    </div>
-  </section>
-  <hr>
-  <section class = "last-env">
-    <div class = "frame-env">
-      <iframe class = "enviFrame" src = "env.htm">
-      </iframe>
+        <div class = "env-inner">
+          <div class = "env-inner-inner">
+            <p id = "user-description"></p>
+            <p id = "user-description2"></p>
+            <p id = "instructions">Click on the drink to simulate drinking during the party!</p>
+            <p id = "instructions2">Click on the red button if and when you want to stop drinking.</p>
+            <div class = "chart-container">
+              <canvas id="myChart"></canvas>
+             </div>
+            <iframe id = "frame" src = "env.htm">
+            </iframe>
+          </div>
+          <p id = "bac">Your Realtime BAC</p>
+          <p id = "symptoms">Symptoms</p>
+                  </div>
+        <input id = "continueBtn" type="button" value="Continue Clock">
     </div>
   </section>
 
-  <section class = "footerSection">
+
+  <!-- <section class = "footerSection">
     <div class = "footer">
       by Stephanie Angulo
     </div>
-  </section> -->
+  </section>  -->
 </body>
 </html>
